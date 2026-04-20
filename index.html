@@ -7,59 +7,118 @@
   <style>
     body {
       margin: 0;
-      background: linear-gradient(to bottom, #ffe6f0, #fff);
       font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(-45deg, #ffe6f0, #ffd6ec, #fff, #ffe6f0);
+      background-size: 400% 400%;
+      animation: gradientBG 8s ease infinite;
       display: flex;
       justify-content: center;
-      align-items: center;
-      height: 100vh;
+      align-items: flex-start;
+      padding-top: 80px;
+      overflow: hidden;
+    }
+
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
     }
 
     .box {
       width: 90%;
-      max-width: 380px;
-      background: white;
-      padding: 25px;
+      max-width: 340px;
+      background: rgba(255,255,255,0.6);
+      backdrop-filter: blur(10px);
+      padding: 20px;
       border-radius: 20px;
       text-align: center;
-      box-shadow: 0 10px 30px rgba(255, 105, 180, 0.2);
+      box-shadow: 0 10px 30px rgba(255, 105, 180, 0.25);
+      animation: fadeIn 0.8s ease;
     }
 
     h2 {
       color: #ff4da6;
-      margin-bottom: 10px;
+      font-size: 20px;
+      margin-bottom: 8px;
     }
 
     p {
-      color: #777;
-      font-size: 14px;
+      color: #555;
+      font-size: 13px;
     }
 
     textarea {
       width: 100%;
-      height: 100px;
-      border-radius: 15px;
-      border: 1px solid #ffd6e8;
+      height: 90px;
+      border-radius: 12px;
+      border: none;
       padding: 10px;
       margin-top: 10px;
+      font-size: 13px;
       outline: none;
-      font-size: 14px;
+      background: rgba(255,255,255,0.8);
     }
 
     button {
       width: 100%;
-      padding: 12px;
-      margin-top: 15px;
+      padding: 11px;
+      margin-top: 12px;
       border: none;
-      border-radius: 25px;
-      background: #ff66b2;
+      border-radius: 20px;
+      background: linear-gradient(to right, #ff66b2, #ff4da6);
       color: white;
-      font-size: 16px;
+      font-size: 14px;
       cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.03);
     }
 
     #next {
       display: none;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    /* floating hearts */
+    .heart {
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      background: pink;
+      transform: rotate(45deg);
+      animation: float 6s linear infinite;
+      opacity: 0.6;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      background: pink;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -7px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -7px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {transform: translateY(0) rotate(45deg);}
+      100% {transform: translateY(-800px) rotate(45deg);}
     }
 
   </style>
@@ -67,11 +126,17 @@
 
 <body>
 
+<!-- hearts -->
+<div class="heart" style="left:10%; animation-duration:7s;"></div>
+<div class="heart" style="left:30%; animation-duration:5s;"></div>
+<div class="heart" style="left:60%; animation-duration:6s;"></div>
+<div class="heart" style="left:80%; animation-duration:8s;"></div>
+
 <div class="box" id="form">
   <h2>💌 Anonymous Confessions</h2>
-  <p>Share anything… no one will know 🫶</p>
+  <p>Say anything… it's safe here 🫶</p>
 
-  <textarea id="secret" placeholder="Type your secret here..."></textarea>
+  <textarea id="secret" placeholder="Type your secret..."></textarea>
   <button onclick="submitSecret()">Send Secret 💖</button>
 </div>
 
@@ -96,7 +161,7 @@
     setTimeout(() => {
       document.getElementById("msg").innerHTML = "Your secret is safe 💖";
       document.getElementById("btn").style.display = "block";
-    }, 2500);
+    }, 2000);
   }
 
   function openAd() {
