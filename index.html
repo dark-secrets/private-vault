@@ -2,18 +2,34 @@
 <html>
 <head>
   <title>Anonymous Confessions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
+      margin: 0;
       background: #0f0f0f;
       color: white;
       font-family: Arial;
-      text-align: center;
-      padding: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
     }
 
     .box {
+      width: 90%;
       max-width: 400px;
-      margin: auto;
+      background: rgba(255,255,255,0.05);
+      padding: 20px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 0 25px rgba(255,0,100,0.2);
+      animation: fadeIn 0.8s ease;
+    }
+
+    h2 {
+      margin-bottom: 10px;
     }
 
     textarea {
@@ -22,21 +38,45 @@
       border-radius: 10px;
       border: none;
       padding: 10px;
+      margin-top: 10px;
+      outline: none;
     }
 
     button {
-      padding: 12px 20px;
+      width: 100%;
+      padding: 12px;
       margin-top: 15px;
       border: none;
-      border-radius: 20px;
+      border-radius: 25px;
       background: #ff3d7f;
       color: white;
+      font-size: 16px;
       cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #ff5c94;
     }
 
     #next {
       display: none;
     }
+
+    .typing::after {
+      content: '|';
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+
   </style>
 </head>
 
@@ -52,8 +92,8 @@
 
 <div class="box" id="next">
   <h2>Secret Submitted 💋</h2>
-  <p>Processing...</p>
-  <button onclick="openAd()">View Other Secrets</button>
+  <p id="msg" class="typing">Processing</p>
+  <button id="finalBtn" style="display:none;" onclick="openAd()">View Other Secrets</button>
 </div>
 
 <script>
@@ -68,9 +108,16 @@
     document.getElementById("form").style.display = "none";
     document.getElementById("next").style.display = "block";
 
+    let msg = document.getElementById("msg");
+
+    setTimeout(() => { msg.innerHTML = "Uploading."; }, 1000);
+    setTimeout(() => { msg.innerHTML = "Uploading.."; }, 2000);
+    setTimeout(() => { msg.innerHTML = "Uploading..."; }, 3000);
+    setTimeout(() => { msg.innerHTML = "Secret is now live 👇"; }, 4000);
+
     setTimeout(() => {
-      document.querySelector("#next p").innerHTML = "See what others shared 👇";
-    }, 2000);
+      document.getElementById("finalBtn").style.display = "block";
+    }, 4500);
   }
 
   function openAd() {
