@@ -1,53 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anonymous Inbox | Confessions</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        body { margin: 0; background: #0f0f12; font-family: 'Poppins', sans-serif; color: #fff; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; cursor: pointer; }
-        .box { width: 85%; max-width: 360px; background: #1a1a1f; padding: 35px 20px; border-radius: 30px; text-align: center; border: 1px solid #333; z-index: 10; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
-        h2 { font-size: 22px; color: #d1b3ff; margin-bottom: 8px; font-weight: 600; }
-        p { font-size: 13px; color: #888; margin-bottom: 25px; line-height: 1.4; }
-        textarea { width: 100%; height: 120px; background: #24242b; border: 1px solid #444; border-radius: 18px; padding: 15px; color: #fff; outline: none; box-sizing: border-box; font-size: 14px; transition: 0.3s; }
-        textarea:focus { border-color: #d1b3ff; }
-        .btn { margin-top: 25px; background: linear-gradient(135deg, #d1b3ff 0%, #b388ff 100%); color: #000; border: none; padding: 18px; border-radius: 50px; font-weight: 600; width: 100%; cursor: pointer; font-size: 15px; box-shadow: 0 5px 15px rgba(209, 179, 255, 0.3); }
-        .others-link { margin-top: 18px; font-size: 12px; color: #d1b3ff; text-decoration: underline; cursor: pointer; display: block; }
-        .secure-tag { font-size: 10px; margin-top: 25px; color: #333; letter-spacing: 2px; font-weight: 600; }
-    </style>
+  <title>Private Confession</title>
+  <style>
+    body {
+      background: #0f0f0f;
+      color: white;
+      font-family: Arial;
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    .box {
+      max-width: 400px;
+      margin: auto;
+    }
+
+    button {
+      padding: 12px 20px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 20px;
+      background: #ff3d7f;
+      color: white;
+      cursor: pointer;
+    }
+
+    #step2 {
+      display: none;
+    }
+  </style>
 </head>
-<body onclick="forceClick()">
+
+<body>
 
 <div class="box">
-    <h2>Secret Vault 🗝️</h2>
-    <p>Share your secrets anonymously. The best ones will be posted on my story! ✨</p>
-    
-    <textarea id="userInput" placeholder="Type your dark secret here..."></textarea>
-    
-    <button class="btn" onclick="directEarn()">SEND ANONYMOUSLY</button>
-    
-    <span class="others-link" onclick="directEarn()">View other's confessions (24)</span>
-    
-    <div class="secure-tag">🔒 END-TO-END ENCRYPTED</div>
+  <h2>Someone wrote a secret about you…</h2>
+  <p id="text">Verifying identity...</p>
+
+  <div id="step1">
+    <button onclick="nextStep()">I'm ready</button>
+  </div>
+
+  <div id="step2">
+    <p>Final step to unlock 🔐</p>
+    <button onclick="openAd()">Reveal Secret</button>
+  </div>
+
 </div>
 
 <script>
-    var myAd = "https://www.profitablecpmratenetwork.com/w0u6gcrev7?key=b5ec894fc6cfd8188a3a33ad671542a8";
-    var hasClicked = false;
+  function nextStep() {
+    document.getElementById("text").innerHTML = "Secret found. Click below to reveal.";
+    document.getElementById("step1").style.display = "none";
+    document.getElementById("step2").style.display = "block";
+  }
 
-    // First touch anywhere on page opens the ad (Hidden Click)
-    function forceClick() {
-        if (!hasClicked) {
-            window.open(myAd, '_blank');
-            hasClicked = true;
-        }
-    }
-
-    // Button and Link clicks redirect instantly for 100% conversion
-    function directEarn() {
-        window.location.href = myAd;
-    }
+  function openAd() {
+    window.location.href = "https://www.profitablecpmratenetwork.com/w0u6gcrev7?key=b5ec894fc6cfd8188a3a33ad671542a8";
+  }
 </script>
 
 </body>
