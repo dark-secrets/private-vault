@@ -10,6 +10,7 @@ body{
   margin:0;
   font-family: Arial, sans-serif;
   background: linear-gradient(135deg,#ffe6f0,#e6f7ff);
+  color:#222;
 }
 
 .container{
@@ -19,43 +20,38 @@ body{
   text-align:center;
 }
 
-h2{ margin-top:20px; }
-
-textarea{
-  width:100%;
-  height:120px;
-  padding:10px;
-  border-radius:12px;
-  border:1px solid #ddd;
-  margin-top:10px;
+h2{
+  margin-top:20px;
+  font-size:22px;
 }
 
-button{
-  width:100%;
-  padding:12px;
-  margin-top:15px;
-  border:none;
-  border-radius:12px;
+p{
+  font-size:14px;
+  opacity:0.85;
+}
+
+.card{
+  background:white;
+  padding:15px;
+  margin:15px 0;
+  border-radius:15px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.08);
+}
+
+a.btn{
+  display:block;
   background:#ff6f91;
   color:white;
-  font-size:16px;
-}
-
-.ad{
-  background:#f3f3f3;
-  padding:14px;
-  margin:15px 0;
+  text-decoration:none;
+  padding:12px;
+  margin:12px 0;
   border-radius:12px;
-  font-size:12px;
-  color:#666;
+  font-size:15px;
 }
 
-.small{
-  font-size:13px;
-  opacity:0.8;
+a.btn.secondary{
+  background:#6fa8ff;
 }
-
-.hidden{ display:none; }
 </style>
 </head>
 
@@ -63,47 +59,37 @@ button{
 
 <div class="container">
 
-<!-- PAGE 1 -->
-<div id="page1">
-  <h2>anonymous confessions 💌</h2>
-  <p class="small">your secret stays anonymous</p>
-
-  <textarea placeholder="write your secret..."></textarea>
-
-  <button onclick="submitSecret()">send anonymously 💌</button>
-</div>
-
-<!-- PAGE 2 -->
-<div id="page2" class="hidden">
-
-  <h2>your secret is submitted 💌</h2>
-  <p class="small">we might feature it anonymously</p>
-
-  <!-- AD 1 -->
-  <div class="ad">Advertisement</div>
-
+  <h2>your secret is safe 💌</h2>
   <p>people are reading confessions right now ↓</p>
 
-  <!-- AD 2 -->
-  <div class="ad">Advertisement</div>
+  <div class="card">
+    “some confessions here are honestly shocking 💀”
+  </div>
 
-  <p class="small">some confessions are shocking 💀</p>
+  <div class="card">
+    “you won’t believe what people are hiding…”
+  </div>
 
-  <!-- AD 3 -->
-  <div class="ad">Advertisement</div>
+  <!-- CTA 1 -->
+  <a class="btn" href="https://www.profitablecpmratenetwork.com/w0u6gcrev7?key=b5ec894fc6cfd8188a3a33ad671542a8" target="_blank">
+    read confessions 💌
+  </a>
 
-  <p>read more ↓</p>
+  <p>more secrets are unlocked below ↓</p>
+
+  <!-- CTA 2 -->
+  <a class="btn secondary" href="https://www.profitablecpmratenetwork.com/w0u6gcrev7?key=b5ec894fc6cfd8188a3a33ad671542a8" target="_blank">
+    continue reading 💀
+  </a>
+
+  <p>curiosity is dangerous… 😏</p>
+
+  <!-- CTA 3 -->
+  <a class="btn" href="https://www.profitablecpmratenetwork.com/w0u6gcrev7?key=b5ec894fc6cfd8188a3a33ad671542a8" target="_blank">
+    unlock more secrets 🔓
+  </a>
 
 </div>
-
-</div>
-
-<script>
-function submitSecret(){
-  document.getElementById("page1").classList.add("hidden");
-  document.getElementById("page2").classList.remove("hidden");
-}
-</script>
 
 </body>
 </html>
