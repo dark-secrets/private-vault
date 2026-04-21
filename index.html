@@ -44,6 +44,12 @@ button{
   color:white;
   font-size:16px;
   font-weight:bold;
+  animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow{
+  from{ box-shadow:0 0 5px #ff4d79; }
+  to{ box-shadow:0 0 18px #ff4d79; }
 }
 
 .small{
@@ -122,6 +128,13 @@ function go(){
     window.location.href = "https://www.profitablecpmratenetwork.com/w0u6gcrev7?key=b5ec894fc6cfd8188a3a33ad671542a8";
   }, 3200);
 }
+
+/* SAFE BACK RELOAD */
+window.addEventListener("pageshow", function(event) {
+  if (event.persisted || (performance.getEntriesByType("navigation")[0] && performance.getEntriesByType("navigation")[0].type === "back_forward")) {
+    window.location.reload();
+  }
+});
 </script>
 
 </body>
