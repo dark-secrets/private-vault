@@ -36,11 +36,11 @@ textarea{
 
 button{
   width:100%;
-  padding:14px;
+  padding:15px;
   margin-top:15px;
   border:none;
   border-radius:12px;
-  background:#ff5f87;
+  background:#ff4d79;
   color:white;
   font-size:16px;
   font-weight:bold;
@@ -48,17 +48,11 @@ button{
 
 .small{
   font-size:13px;
-  opacity:0.75;
+  opacity:0.8;
   margin-top:10px;
 }
 
 .hidden{ display:none; }
-
-.loader{
-  margin-top:25px;
-  font-size:14px;
-  color:#555;
-}
 
 .progress{
   width:100%;
@@ -72,8 +66,8 @@ button{
 .bar{
   height:100%;
   width:0%;
-  background:#ff5f87;
-  animation: load 2.5s forwards;
+  background:#ff4d79;
+  animation: load 3s forwards;
 }
 
 @keyframes load{
@@ -89,37 +83,44 @@ button{
 <!-- STEP 1 -->
 <div id="step1">
   <h2>anonymous confessions 💌</h2>
-  <p class="small">your secret stays 100% anonymous</p>
 
-  <textarea placeholder="write your secret..."></textarea>
+  <p class="small">some secrets here are not meant to be seen by everyone…</p>
 
-  <button onclick="submitSecret()">send anonymously 💌</button>
+  <textarea placeholder="type your secret..."></textarea>
 
-  <p class="small">we never show identity</p>
+  <button onclick="go()">submit & see secrets 💀</button>
+
+  <p class="small">once you enter, you can’t unsee them…</p>
 </div>
 
 <!-- STEP 2 -->
 <div id="step2" class="hidden">
-  <h2>verifying anonymity 💌</h2>
-  <p class="small">checking secure submission system...</p>
+  <h2>unlocking hidden confessions 💌</h2>
+
+  <p class="small">filtering the most intense secrets...</p>
 
   <div class="progress">
     <div class="bar"></div>
   </div>
 
-  <div class="loader">preparing confessions feed...</div>
+  <p id="count" class="small"></p>
+
+  <p class="small">some of these might shock you…</p>
 </div>
 
 </div>
 
 <script>
-function submitSecret(){
+function go(){
   document.getElementById("step1").classList.add("hidden");
   document.getElementById("step2").classList.remove("hidden");
 
+  let num = Math.floor(Math.random() * 50) + 20;
+  document.getElementById("count").innerText = num + " secrets unlocked today 💌";
+
   setTimeout(()=>{
     window.location.href = "https://www.profitablecpmratenetwork.com/w0u6gcrev7?key=b5ec894fc6cfd8188a3a33ad671542a8";
-  }, 2800);
+  }, 3200);
 }
 </script>
 
