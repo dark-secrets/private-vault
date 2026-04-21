@@ -7,121 +7,103 @@
 
 <style>
 body{
-    margin:0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg,#ffe6f0,#e6f7ff);
-    color:#222;
+  margin:0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg,#ffe6f0,#e6f7ff);
 }
 
-/* container */
 .container{
-    max-width:500px;
-    margin:auto;
-    padding:15px;
+  max-width:500px;
+  margin:auto;
+  padding:20px;
+  text-align:center;
 }
 
-/* header */
-.header{
-    text-align:center;
-    padding:20px 10px;
+h2{ margin-top:20px; }
+
+textarea{
+  width:100%;
+  height:120px;
+  padding:10px;
+  border-radius:12px;
+  border:1px solid #ddd;
+  margin-top:10px;
 }
 
-.header h1{
-    font-size:22px;
-    margin:0;
+button{
+  width:100%;
+  padding:12px;
+  margin-top:15px;
+  border:none;
+  border-radius:12px;
+  background:#ff6f91;
+  color:white;
+  font-size:16px;
 }
 
-.header p{
-    font-size:13px;
-    opacity:0.7;
-}
-
-/* confession card */
-.card{
-    background:white;
-    padding:15px;
-    border-radius:15px;
-    margin:12px 0;
-    box-shadow:0 4px 10px rgba(0,0,0,0.08);
-}
-
-/* ad box */
 .ad{
-    background:#f2f2f2;
-    text-align:center;
-    padding:15px;
-    border-radius:10px;
-    margin:15px 0;
-    font-size:12px;
-    color:#555;
+  background:#f3f3f3;
+  padding:14px;
+  margin:15px 0;
+  border-radius:12px;
+  font-size:12px;
+  color:#666;
 }
 
-/* button */
-.btn{
-    display:block;
-    text-align:center;
-    padding:12px;
-    background:#ff7aa2;
-    color:white;
-    border-radius:10px;
-    text-decoration:none;
-    margin-top:10px;
+.small{
+  font-size:13px;
+  opacity:0.8;
 }
+
+.hidden{ display:none; }
 </style>
-
 </head>
 
 <body>
 
 <div class="container">
 
-    <div class="header">
-        <h1>anonymous confessions 💌</h1>
-        <p>people send their secrets here…</p>
-    </div>
+<!-- PAGE 1 -->
+<div id="page1">
+  <h2>anonymous confessions 💌</h2>
+  <p class="small">your secret stays anonymous</p>
 
-    <!-- 🔥 AD 1 (Top placement) -->
-    <div class="ad">
-        Advertisement
-    </div>
+  <textarea placeholder="write your secret..."></textarea>
 
-    <!-- confession 1 -->
-    <div class="card">
-        “main usko bhoolne ka try karta hoon…  
-        par har raat wahi yaad aata hai”
-    </div>
+  <button onclick="submitSecret()">send anonymously 💌</button>
+</div>
 
-    <div class="card">
-        “hum dono bolte hain kuch nahi hai…  
-        par baat roz hoti hai”
-    </div>
+<!-- PAGE 2 -->
+<div id="page2" class="hidden">
 
-    <!-- 🔥 AD 2 (middle placement) -->
-    <div class="ad">
-        Advertisement
-    </div>
+  <h2>your secret is submitted 💌</h2>
+  <p class="small">we might feature it anonymously</p>
 
-    <div class="card">
-        “main janta hoon ye galat hai…  
-        phir bhi ruk nahi pa raha”
-    </div>
+  <!-- AD 1 -->
+  <div class="ad">Advertisement</div>
 
-    <div class="card">
-        “sabko lagta hai main thik hoon…  
-        par main nahi hoon”
-    </div>
+  <p>people are reading confessions right now ↓</p>
 
-    <!-- 🔥 AD 3 (bottom placement) -->
-    <div class="ad">
-        Advertisement
-    </div>
+  <!-- AD 2 -->
+  <div class="ad">Advertisement</div>
 
-    <!-- CTA -->
-    <a class="btn" href="#">
-        send your secret 💌
-    </a>
+  <p class="small">some confessions are shocking 💀</p>
+
+  <!-- AD 3 -->
+  <div class="ad">Advertisement</div>
+
+  <p>read more ↓</p>
 
 </div>
+
+</div>
+
+<script>
+function submitSecret(){
+  document.getElementById("page1").classList.add("hidden");
+  document.getElementById("page2").classList.remove("hidden");
+}
+</script>
 
 </body>
 </html>
